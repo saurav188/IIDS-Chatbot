@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <record id="module_category_genai" model="ir.module.category">
+             <field name="name">Generative AI user types</field>
+             <field name="description">GenAI User access level</field>
+             <field name="sequence">20</field>
+        </record>
+        <record id="group_genai_user_access" model="res.groups">
+            <field name="name">User Access</field>
+            <field name="category_id" ref="module_category_genai"/>
+        </record>
+        <record id="group_genai_admin_access" model="res.groups">
+            <field name="name">Admin Access</field>
+            <field name="category_id" ref="module_category_genai"/>
+        </record>
+    </data>
+</odoo>

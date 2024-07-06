@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_website_link_base,access__website_link_base,model_website_link,base.group_user,1,1,1,1
+access_pdf_link_base,access__pdf_link_base,model_pdf_link,base.group_user,1,1,1,1
+access_data_tag_base,access__data_tag_base,model_data_tag,base.group_user,1,1,1,1
+access_doc_upload_base,access__doc_upload_base,model_doc_upload,base.group_user,1,1,1,1

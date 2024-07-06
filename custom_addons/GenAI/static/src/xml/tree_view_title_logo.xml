@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="workshop.TreeViewTitleLogo" t-inherit="web.KanbanView" owl="1">
+        <xpath expr="//t[@t-if='canCreate and props.showButtons']" position="before">
+        </xpath>
+    </t>
+    <t t-name="workshop.TreeViewTitleLogo.Buttons">
+        <div class="w-50" style="min-width:600px">
+            <img class="rounded w-50" src="/workshop/static/images/logo_workshop.png"/>
+        </div>
+        <!-- <div t-if="props.showButtons" class="o_cp_buttons d-empty-none d-flex align-items-baseline gap-1" role="toolbar" aria-label="Main actions"/> -->
+    </t>
+</templates>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- webpage record -->
+        <template id="iids_ai_chat_page" name="Chat.AI">
+            <t t-call="website.layout">
+                <style>
+                    .dot-animate::after {
+                        content: ' .';
+                        animation: dots 2.5s steps(3, end) infinite;
+                    }
+
+                    @keyframes dots {
+                        0%, 20% {
+                            content: ' .';
+                        }
+                        40% {
+                            content: ' ..';
+                        }
+                        60% {
+                            content: ' ...';
+                        }
+                        80%, 100% {
+                            content: ' .';
+                        }
+                    }
+                </style>
+                <div id="wrap" class="oe_structure oe_empty d-flex justify-content-center">
+                    <div id="chat-container" class="card w-100 h-75 m-2" style="max-width: 100%;min-height:100%;">
+                        <div class="card-header text-center">
+                            Chat
+                        </div>
+                        <div id="chat-box" class="card-body overflow-auto" style="min-height:70vh;max-height:70vh">
+                            <!-- Category buttons -->
+                            <div class="btn-group mb-2" id="category-buttons" style="
+                                                                            position: absolute;
+                                                                            z-index: 100;
+                                                                            background-color: white;
+                                                                            height: 100%;
+                                                                            width: 100%;
+                                                                            display: block;
+                                                                            padding: auto auto;
+                                                                        ">
+                                <t t-foreach="tags" t-as="tag">
+                                    <button type="button" class="btn btn-outline-primary category-button" t-attf-db-name="{{tag['vec_db']}}"><span t-esc="tag['name']"/></button>
+                                </t>
+                            </div>
+                            <!-- Messages will appear here -->
+                            <small class="text-muted">AI</small>
+                            <div class="alert alert-primary">
+                                Hi! How can I help you today?
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <!-- Message input and send button -->
+                            <div class="d-flex">
+                                <input id="message-input" type="text" class="form-control me-2" placeholder="Type your message..." disable="1"/>
+                                <button id="ai-chat-send-button" class="btn btn-primary" disable="1">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
