@@ -1,0 +1,19 @@
+<odoo>
+	<data noupdate='1'>
+        <record id='tos_1' model='type.of.service.type'>
+            <field name='name'>Dashboard</field>
+        </record>
+        <record id='tos_2' model='type.of.service.type'>
+            <field name='name'>Invoices</field>
+        </record>
+        <record id='tos_3' model='type.of.service.type'>
+            <field name='name'>Customers</field>
+        </record>
+        <record id='tos_4' model='type.of.service.type'>
+            <field name='name'>Products</field>
+        </record>
+        <record id='tos_5' model='type.of.service.type'>
+            <field name='name'>Vehicles</field>
+        </record>
+	</data>
+</odoo>

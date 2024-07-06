@@ -1,0 +1,55 @@
+<odoo>
+    <data>        
+        <record id="action_doc_upload" model="ir.actions.act_window">
+            <field name="name">GenAI</field>
+            <field name="res_model">doc.upload</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_website_services"
+            name="GenAI"
+            parent=""
+            action="action_doc_upload" />
+
+
+        <!-- Configuration menus -->
+        <menuitem id="menu_genai_config"
+            name="Configuration"
+            parent="menu_website_services" 
+            sequence="999999"/>
+
+        <record id="action_website_link_config" model="ir.actions.act_window">
+            <field name="name">Website Links</field>
+            <field name="res_model">website.link</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <menuitem id="menu_website_link_config"
+            name="Website Links"
+            parent="menu_website_services"
+            action="action_website_link_config" />
+
+        <record id="action_pdf_link_config" model="ir.actions.act_window">
+            <field name="name">pdf Links</field>
+            <field name="res_model">pdf.link</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <menuitem id="menu_pdf_link_config"
+            name="pdf Links"
+            parent="menu_website_services"
+            action="action_pdf_link_config" />
+
+        <record id="action_data_tag_config" model="ir.actions.act_window">
+            <field name="name">Data Tags</field>
+            <field name="res_model">data.tag</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <menuitem id="menu_data_tag_config"
+            name="Data Tags"
+            parent="menu_genai_config"
+            action="action_data_tag_config" />
+
+    </data>
+</odoo>

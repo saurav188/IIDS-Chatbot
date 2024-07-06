@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="workshop.NewAutoComplete" t-inherit="web.AutoComplete" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[@t-ref='root']" position="attributes">
+            <attribute name="class">o-autocomplete d-flex</attribute>
+        </xpath>
+        <xpath expr="//input[@class='o-autocomplete--input o_input']" position="after">
+            <div>
+                <!-- <t t-out="onInputClick"/> -->
+                <t t-foreach="sources" t-as="source" t-key="source.id">
+                        <t t-if="source.isLoading">
+                            <li class="ui-menu-item"
+                                t-att-class="{
+                                    'o-autocomplete--dropdown-item': props.dropdown,
+                                    'd-block': !props.dropdown
+                                }">
+                                <a href="#" class="dropdown-item ui-menu-item-wrapper">
+                                    <i class="fa fa-search" />
+                                </a>
+                            </li>
+                            
+                        </t>
+                        <t t-else="">
+                            <t t-foreach="source.options" t-as="option" t-key="option.id">
+                                <t t-if ="option.label=='Search More...'">
+                                    <button class="btn btn-primary" 
+                                        t-on-click="() => this.onOptionClick([source_index, option_index])">
+                                        <i class="fa fa-search" />
+                                    </button>
+                                </t>
+                            </t>
+                        </t>
+                    </t>
+            </div>
+        </xpath>
+    </t>
+</templates>

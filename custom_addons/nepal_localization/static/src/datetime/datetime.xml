@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="nepal_localization.DateTimeField" owl="1">
+       <xpath expr="." position="replace">
+            <t t-if="props.readonly">
+                BS: <span t-esc="state2.bs_date" />
+            </t>
+            <t t-else="">
+                <div class="d-flex">
+                    BS:<input style="width:164px;min-width:150px;" type="text" class="o_input" t-att-id="state2.new_id" name="date" t-ref="nepali-datepicker" readonly="true"/>
+                </div>
+            </t>
+            <div class="d-flex">
+                <t t-if="props.readonly">
+                    AD: <span t-esc="state2.ad_date" />
+                </t>
+                <t t-else="">
+                    <div class="d-flex">
+                        AD:<DateTimeField t-props="props" /> 
+                     </div>
+                </t>
+
+                
+            </div>
+       </xpath>
+    </t>
+</templates>

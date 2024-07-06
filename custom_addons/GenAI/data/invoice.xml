@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <template id="fis_report_invoice_document" inherit_id="account.report_invoice_document">
+            <xpath expr="//table[@name='invoice_line_table']" position="before">
+                <div style="float:right;" >
+                    <div class="" t-if='o.payment_method'>
+                        <div>Method of payment: <span t-field="o.payment_method"/></div>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

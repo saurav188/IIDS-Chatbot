@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_doc_upload_tree" model="ir.ui.view">
+            <field name="name">doc.upload.tree</field>
+            <field name="model">doc.upload</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="source"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_doc_upload_form" model="ir.ui.view">
+            <field name="name">doc.upload.form</field>
+            <field name="model">doc.upload</field>
+            <field name="arch" type="xml">
+                <form class="o_form_mobile">
+                <field name="show_commit" invisible="1"/>
+                <header>
+                    <button invisible="show_commit" name="action_commit_to_vec_db"
+                        string="Commit"
+                        type="object"
+                        class="btn-primary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="pending,commited"/>
+                </header>
+                    <sheet>
+                        <group>
+                            <!-- <field name='state'/> -->
+                            <!-- <field name='vec_db_ids'/> -->
+                            <field name='source'/>
+                            <field name='data_tag' widget="many2many_tags"/>
+                        </group>
+                        <group>
+                            <group col="3">
+                                <separator string="Nepali Files" />
+                                <group>
+                                    <field name="pdf_np"/>
+                                </group>
+                                <group>
+                                    <field name="image_np"/>
+                                </group>
+                                <group>
+                                    <field name="audio_np"/>
+                                </group>
+                            </group>
+                            <group col="3">
+                                <separator string="English Files" />
+                                <group>
+                                    <field name="pdf_en"/>
+                                </group>
+                                <group>
+                                    <field name="image_en"/>
+                                </group>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <group>
+                                    <button name="action_translate_np_to_en"
+                                        string="Translate"
+                                        type="object"
+                                        class="btn-primary"/>
+                                    <!-- <button name="action_summarise_np"
+                                        string="Summarise"
+                                        type="object"
+                                        class="btn-secondary"/> -->
+                                </group>
+                                <field name="text_np"/>
+                            </group>
+                            <group>
+                                <!-- <group>
+                                </group> -->
+                                <field name="text_en"/>
+                            </group>
+                            
+                        </group>
+                        <div class="oe_chatter">
+                            <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                            <field name="message_ids" widget="mail_thread"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_website_link_tree" model="ir.ui.view">
+            <field name="name">website.link.tree</field>
+            <field name="model">website.link</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="link"/>
+                    <field name="name"/>
+                    <field name="is_crawled"/>
+                    <field name="crawled_time" invisible="not is_crawled"/>
+                    <field name="crawled_links_count" invisible="not is_crawled"/>
+                    <button string="Crawl" name="crawl_website" type="object"/>
+                    <button string="Upload" name="upload_links" type="object"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_pdf_link_tree" model="ir.ui.view">
+            <field name="name">pdf.link.tree</field>
+            <field name="model">pdf.link</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="link"/>
+                    <field name="is_uploaded"/>
+                    <field name="website_link"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_data_tag_tree" model="ir.ui.view">
+            <field name="name">data.tag.tree</field>
+            <field name="model">data.tag</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name"/>
+                    <field name="choosable"/>
+                    <!-- <field name="active"/> -->
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>
