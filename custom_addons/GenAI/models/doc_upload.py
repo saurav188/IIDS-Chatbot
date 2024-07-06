@@ -230,9 +230,6 @@ def split_text(documents: list[Document]):
 
     return chunks
 
-llama = LlamaApi(username='Schnapps9108', password='DWAja$XtC43c3*')
-
-# Summarization Prompt
 
 base_prompt = """You are a large language model tasked with creating a detailed report on the documents and extracting relevant information.
 
@@ -329,16 +326,16 @@ class DocUpload(models.Model):
                 temp = np_to_en(nep_text)
                 obj.text_en = '\n'.join(temp)
     
-    def action_summarise_np(self):
-        self.action_translate_np_to_en()
-        for obj in self:
-            eng_text = obj.text_en
-            # clean_texts = remove_short_lines(texts)
-            cleaned_en_text = clean_en_text([eng_text])
-            document = '\n'.join(cleaned_en_text)
-            prompt = f"{base_prompt.format(document)}"
-            answer = llama.prompt(prompt)
-            obj.summary = answer.replace('*','')
+    # def action_summarise_np(self):
+    #     self.action_translate_np_to_en()
+    #     for obj in self:
+    #         eng_text = obj.text_en
+    #         # clean_texts = remove_short_lines(texts)
+    #         cleaned_en_text = clean_en_text([eng_text])
+    #         document = '\n'.join(cleaned_en_text)
+    #         prompt = f"{base_prompt.format(document)}"
+    #         answer = llama.prompt(prompt)
+    #         obj.summary = answer.replace('*','')
        
     def action_commit_to_vec_db(self):
         for obj in self:

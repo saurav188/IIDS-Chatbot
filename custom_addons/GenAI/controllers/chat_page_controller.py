@@ -4,6 +4,7 @@ from odoo.http import request
 from werkzeug.wrappers import Request, Response
 import json
 import requests
+import os
 from odoo import modules
 
 from langchain.docstore.document import Document
@@ -69,8 +70,9 @@ class LlamaApi:
     else:
         raise Exception("API call failed. Status code: {}".format(response.status_code))
 
+
 # llm
-llama = LlamaApi(username='Schnapps9108', password='DWAja$XtC43c3*')
+llama = LlamaApi(username=os.environ('llama_username'), password=os.environ('llama_password'))
 model_name = "all-MiniLM-L6-v2"  # Choose a suitable model
 embeddings_model = SentenceTransformer(model_name)
 
