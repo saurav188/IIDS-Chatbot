@@ -72,7 +72,7 @@ class LlamaApi:
 
 
 # llm
-llama = LlamaApi(username=os.environ('llama_username'), password=os.environ('llama_password'))
+llama = LlamaApi(username=os.environ['llama_username'], password=os.environ['llama_password'])
 model_name = "all-MiniLM-L6-v2"  # Choose a suitable model
 embeddings_model = SentenceTransformer(model_name)
 
